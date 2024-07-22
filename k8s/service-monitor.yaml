@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: python-app-monitor
+  namespace: python-app
+  labels:
+    release: prometheus
+spec:
+  namespaceSelector:
+    matchNames:
+    - python-app
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: python-app
+  endpoints:
+  - path: /metrics

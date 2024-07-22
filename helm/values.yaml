@@ -1,0 +1,21 @@
+# app name info
+appName: python-app
+# deployment info
+deployment:
+  replicas: 1
+  image:
+    name: felipemunozri/python-app
+    tag: "1.0"
+  pullPolicy: Always
+  resources:
+    limits:
+      memory: 128Mi
+      cpu: 250m
+# service info
+service:
+  type: NodePort
+  serverPort: 8080
+# ingress info
+ingress:
+  className: nginx
+  host: python-app.test
